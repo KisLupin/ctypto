@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class Main {
 
@@ -160,7 +159,15 @@ public class Main {
 //        aes.AddRoundKey(state,roundkey.get(0));
 //        aes.Cipher(state, roundkey, cipherkey);
 //        aes.decryto(state,roundkey);
-        print(mixCol);
+//        print(mixCol);
+
+        //RSA
+        RSA rsa = new RSA(17,199*197);
+        rsa.compute_Prime();
+        rsa.prime();
+        long cipher = rsa.RSA(23, rsa.e, rsa.n);
+        System.out.println(rsa.RSA(23, rsa.e, rsa.n));
+        System.out.println(rsa.deRSA(cipher));
     }
     static void print(int[][] state){
         for (int i = 0; i < 4; i++) {
@@ -168,5 +175,6 @@ public class Main {
             System.out.println();
         }
     }
+
 }
 
